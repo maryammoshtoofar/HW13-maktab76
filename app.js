@@ -3,6 +3,8 @@ const siteIds = [];
 const projectIds = [];
 const tbl = document.getElementById("targets");
 const siteIdRow = document.getElementById("tableHead");
+const spinner = document.querySelector("#loading");
+const content = document.querySelector(".wrapper");
 
 document.addEventListener("DOMContentLoaded", () => {
   getData();
@@ -10,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Fetch
 const getData = () => {
+  spinner.style.display = "block";
+  content.style.display = "none";
   fetch(API_URL)
     .then((response) => response.json())
     .then((data) => {
@@ -23,6 +27,8 @@ const getData = () => {
         sortProjectIds(projectIds),
         data
       );
+      spinner.style.display = "none";
+      content.style.display = "flex";
     });
 };
 
