@@ -1,0 +1,35 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100wv;
+  height: 90vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #3a3939;
+}
+
+.table {
+  text-align: center;
+  border-radius: 5px;
+  width: 75%;
+  height: 30%;
+  background-color: rgb(236, 240, 240);
+  box-shadow: 5px 10px 8px #eafcff;
+  table-layout: fixed;
+
+  th {
+    font-size: 24px;
+    background-color: rgb(11, 197, 197);
+    border-radius: 5px;
+  }
+
+  th:first-of-type {
+    font-size: 14px;
+  }
+
+  td {
+    width: 12%;
+    background-color: #e6e6e6;
+    border-radius: 5px;
+  }
+}

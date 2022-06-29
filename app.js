@@ -26,13 +26,22 @@ const getData = () => {
     });
 };
 
+// Sorting Functions
 const sortSiteIds = (siteIds) => {
   const sortedSiteIds = [...new Set(siteIds)].sort((a, b) => {
     return a - b;
   });
-
   return sortedSiteIds;
 };
+
+const sortProjectIds = (projectIds) => {
+  const sortedProjectIds = [...new Set(projectIds)].sort((a, b) => {
+    return a - b;
+  });
+  return sortedProjectIds;
+};
+
+// Create and append SiteID columns using fetched data
 
 const generateSiteIdCells = (siteIds) => {
   for (let i = 0; i < siteIds.length; i++) {
@@ -43,12 +52,7 @@ const generateSiteIdCells = (siteIds) => {
   tbl.appendChild(siteIdRow);
 };
 
-const sortProjectIds = (projectIds) => {
-  const sortedProjectIds = [...new Set(projectIds)].sort((a, b) => {
-    return a - b;
-  });
-  return sortedProjectIds;
-};
+// Generate an array consisting of ProjectIds + Targets
 
 const generateTargetArrays = (siteIds, projectIds, data) => {
   for (let i = 0; i < projectIds.length; i++) {
@@ -65,6 +69,8 @@ const generateTargetArrays = (siteIds, projectIds, data) => {
     generateTargetCells(targetArray);
   }
 };
+
+// Create and Append all cells using the previously made array
 
 const generateTargetCells = (targetArray) => {
   const targetRow = document.createElement("tr");
